@@ -7,3 +7,7 @@ Write a function, isItLetter or is_it_letter or IsItLetter, which tells us if a 
 def is_it_letter(s):
     return s.isalpha()
 
+# Alternate solution, using regex for practice
+import re
+def regex_letter(s):
+    return True if re.search('[a-zA-Z]', s) else False
