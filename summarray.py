@@ -26,3 +26,8 @@ def sum_array(a):
     else:
         return sum(a)
     
+# Alternate solution after some reading
+# The sum function is capable of reconciling an empty array
+
+def sum_array2(a):
+    return sum(a)
