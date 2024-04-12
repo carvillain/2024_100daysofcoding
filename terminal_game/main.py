@@ -1,16 +1,34 @@
 from characters import *
 from movement import *
+from combat import *
 
-antagonist = Hero("Owen")
+if __name__ == "__main__":
+    hero_name = input("Please let the world know your name traveler ")
+    antagonist = Hero(hero_name)
+    print(f"Welcome into the fold {antagonist.name}! Beware there are monsters in the area.")
+    playing = True
 
-print(antagonist.name)
-print(f"Player starting position is ({antagonist.position_x}, {antagonist.position_y})")
+    while antagonist.health > 0:
+        action = input("What would you like to do? Move or heal ")
 
-move_north(antagonist)
-print(f"{antagonist.name} is now at ({antagonist.position_x}, {antagonist.position_y})")
+        if action.lower() == "heal":
+            antagonist.heal()
+        elif action.lower() == "move":
+            direction = input("Which way are you going? (N, S, W, E, NE, NW, SE, SW) ")
 
-move_east(antagonist)
-print(f"{antagonist.name} is now at ({antagonist.position_x}, {antagonist.position_y})")
+            if direction.lower() == "n":
+                move_north(antagonist)
+            elif direction.lower() == "s":
+                move_south(antagonist)
 
-move_south_west(antagonist)
-print(f"{antagonist.name} is now at ({antagonist.position_x}, {antagonist.position_y})")
+            print(f"You walk until you arrive at ({antagonist.position_x}, {antagonist.position_y})")
+            encounter(antagonist)
+        else:
+            print("I am sorry. I didn't understand you.")
+
+        
+
+
+
+
+
