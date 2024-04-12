@@ -3,7 +3,7 @@ Establish character classes.
 '''
 
 class Hero(object):
-    def __init__(self, name = 'Hero'):
+    def __init__(self, name):
         self.name = name
         self.health = 100
         self.damage = 5
